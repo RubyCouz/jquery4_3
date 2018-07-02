@@ -14,15 +14,22 @@
   <button id="check" onclick="check">Validez</button>
   <script src="assets/js/jquery-3.3.1.min.js"></script>
   <script>
+  //récupératio des données en cliquant sur le bouton
   $('#check').click(function() {
-
+//définition regex pour le nom et prénom
     var regexLetters = /^([a-zéàèêâäëïîôöüûA-Z]+(( |')[a-zéàèêâäëïîôöüû]+)*)+([-]([a-zéàèêâäëïîôöüûA-Z]+(( |')[a-zéàèêâäëïîôöüû]+)*)+)*$/
+    //récupération des valeurs de nom et prénom
     var lastname = document.getElementById('lastname').value;
     var firstname = document.getElementById('firstname').value;
+    //défintiion regex pou email
     var regexEmail = /^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$/;
+    //récupération de l'email
     var email = document.getElementById('email').value;
+    //définiton regex pour numéro de tel
     var regexPhone = /^(0|\\+33|0033)[1-9][0-9]{8}$/;
+    //récupération du numéro de tel
     var phoneNumber = document.getElementById('phonenumber').value;
+    //vérification des regexs
     if ((regexLetters.test(lastname, firstname) == true) && (regexEmail.test(email) == true) && (regexPhone.test(phoneNumber) == true)) {
       alert('Saisie correct');
     } else {
