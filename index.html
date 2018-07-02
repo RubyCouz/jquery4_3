@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Exercice 3</title>
+</head>
+<body>
+  <form>
+    <input id="lastname" placeholder="Nom" />
+    <input id="firstname" placeholder="Prénom" />
+    <input id="email" placeholder="E-mail" />
+    <input id="phonenumber" placeholder="Téléphone" />
+  </form>
+  <button id="check" onclick="check">Validez</button>
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script>
+  $('#check').click(function() {
+
+    var regexLetters = /^([a-zéàèêâäëïîôöüûA-Z]+(( |')[a-zéàèêâäëïîôöüû]+)*)+([-]([a-zéàèêâäëïîôöüûA-Z]+(( |')[a-zéàèêâäëïîôöüû]+)*)+)*$/
+    var lastname = document.getElementById('lastname').value;
+    var firstname = document.getElementById('firstname').value;
+    var regexEmail = /^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$/;
+    var email = document.getElementById('email').value;
+    var regexPhone = /^(0|\\+33|0033)[1-9][0-9]{8}$/;
+    var phoneNumber = document.getElementById('phonenumber').value;
+    if ((regexLetters.test(lastname, firstname) == true) && (regexEmail.test(email) == true) && (regexPhone.test(phoneNumber) == true)) {
+      alert('Saisie correct');
+    } else {
+      alert('Saisie incorrect');
+    }
+  });
+  </script>
+</body>
+</html>
